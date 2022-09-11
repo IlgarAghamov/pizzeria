@@ -2,7 +2,8 @@ import java.util.*;
 
 public class DemoPizzeria {
     public static void main(String[] args) throws InterruptedException {
-        ArrayList<User> usersList = new ArrayList<>();
+        ArrayList<User> usersList = new ArrayList<User>();
+
         while (true) {
             User user = new User();
             System.out.println("Are you registered?");
