@@ -1,10 +1,6 @@
-import javax.sound.midi.Soundbank;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
-import java.util.Scanner;
 
-public class Pizzeria {
+public class Pizza {
     String choicePizzaForPay;
     static float pizzaPrice;
 
@@ -12,7 +8,7 @@ public class Pizzeria {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Pizzeria pizzeria = (Pizzeria) o;
+        Pizza pizzeria = (Pizza) o;
         return Objects.equals(choicePizzaForPay, pizzeria.choicePizzaForPay);
     }
 
@@ -23,7 +19,7 @@ public class Pizzeria {
 
     @Override
     public String toString() {
-        return "Pizzeria{" +
+        return "Pizza{" +
                 "choicePizzaForPay='" + choicePizzaForPay + '\'' +
                 '}';
     }

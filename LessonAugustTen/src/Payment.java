@@ -1,5 +1,3 @@
-import java.util.Date;
-import java.util.Locale;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -40,7 +38,7 @@ public class Payment {
                         break;
                     case "2":
                         System.out.println(" Your Card is Visa");
-                        Pizzeria.pizzaPrice=Pizzeria.pizzaPrice-((Pizzeria.pizzaPrice*15)/100);
+                        Pizza.pizzaPrice= Pizza.pizzaPrice-((Pizza.pizzaPrice*15)/100);
                         break;
                 }
                 boolean cardWhile=false;
@@ -58,7 +56,7 @@ public class Payment {
                                     System.out.println("Card number : " + cardNumber);
                                     System.out.println("CVC code    : " + cvcNumber);
                                     System.out.println("CED         : " + cdeNumber);
-                                    System.out.println("To pay :"+ Pizzeria.pizzaPrice);
+                                    System.out.println("To pay :"+ Pizza.pizzaPrice);
                                     cardOperation = true;
                                     cardWhile=true;
                                 }
@@ -76,7 +74,7 @@ public class Payment {
                 boolean cashWarning=false;
                 while (!cashWarning){
                     cashPayment=scannerCash.nextFloat();
-                if(cashPayment<Pizzeria.pizzaPrice){
+                if(cashPayment< Pizza.pizzaPrice){
                     System.out.println("Insufficient funds");
                     System.out.println("Please try again");
                     p.paymentCard();
@@ -85,7 +83,7 @@ public class Payment {
                 }
                 }
                 Payment.print();
-                System.out.println("Your change   :"+ (cashPayment-Pizzeria.pizzaPrice));
+                System.out.println("Your change   :"+ (cashPayment- Pizza.pizzaPrice));
                 System.out.println("Thanks for visiting us");
                 System.out.println("Have a good day");
                 System.exit(1);
