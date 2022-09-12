@@ -1,9 +1,9 @@
 import java.util.*;
 
 public class DemoPizzeria {
-    public static void main(String[] args) throws InterruptedException {
-        ArrayList<User> usersList = new ArrayList<User>();
+    public static void main(String[] args) throws InterruptedException, ClassNotFoundException {
 
+        ArrayList<User> usersList = JDBConnection.getUsers();
         while (true) {
             User user = new User();
             System.out.println("Are you registered?");
@@ -11,7 +11,7 @@ public class DemoPizzeria {
             Scanner scanner = new Scanner(System.in);
             int number = scanner.nextInt();
             if (number == 2) {
-                user.registration(usersList);
+                 user.registration(usersList);
             } else {
                 if (usersList.isEmpty()) {
                     System.out.println("The account does not exist in the database");

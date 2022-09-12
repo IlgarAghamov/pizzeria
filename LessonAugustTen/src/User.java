@@ -1,13 +1,9 @@
-import javax.sound.midi.Soundbank;
-import javax.swing.plaf.synth.SynthOptionPaneUI;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Objects;
-import java.util.Scanner;
+import java.util.*;
 
 public class User {
     private String login;
     private String password;
+
 
 
     public String getLogin() {
@@ -43,7 +39,7 @@ public class User {
         return Objects.hash(login, password);
     }
 
-    public User(String login, String password) {
+    public User(String login, String password) throws ClassNotFoundException {
         this.login = login;
         this.password = password;
     }
@@ -51,6 +47,7 @@ public class User {
     public void registration(ArrayList<User> registrated) {
         System.out.println("You want to register?");
         System.out.println("If yes click 1 ,otherwise 2");
+
         int numberForRegistration = 3;
         switch (MyScanner.scannerSystemFor2()) {
             case "1":
@@ -104,17 +101,20 @@ public class User {
                         System.out.println("Ok, you are registered");
                         this.login = login;
                         this.password = password;
+                        JDBConnection.setUsers(login,password);
                         numberForRegistration = -1;
                         break;
                     }
                     systemExitCode(numberForRegistration);
                 }
+
                 break;
             case "2":
                 System.out.println("Thanks for visiting us");
                 System.exit(1);
                 break;
         }
+
         registrated.add(this);
     }
 
@@ -126,7 +126,7 @@ public class User {
         }
     }
 
-    public void verification(ArrayList<User> usersList) {
+    public void verification(ArrayList<User> usersList) throws ClassNotFoundException {
         Scanner scannerVerification = new Scanner(System.in);
         int m = 3;
         System.out.println("Please enter login");
@@ -138,27 +138,31 @@ public class User {
                 if (s1.getLogin().equals(enteredLogin)) {
                     System.out.println("Login is true ");
                     System.out.println("Please enter password");
-                    String enterPassword = scannerVerification.nextLine();
-                    if (s1.getPassword().equals(enterPassword)) {
-                        System.out.println("Password is true");
-                        System.out.println("Welcome");
-                        a1 = true;
-                    } else {
-                        if (m != 1) {
-                            System.out.println("Password not true");
-                            System.out.println("Please try again ");
+
+                    while (a1 != true) {
+                        counOfAttentions(m);
+                        String enterPassword = scannerVerification.nextLine();
+                        if (s1.getPassword().equals(enterPassword)) {
+                            System.out.println("Password is true");
+                            System.out.println("Welcome");
+                            a1 = true;
+                        } else {
+                            if (m != 1) {
+                                System.out.println("Password not true");
+                                System.out.println("Please try again ");
+                            }
                         }
                         m--;
+                        systemExitCode(m);
                     }
-
-
-                } else {
-                    if (m != 1) {
-                        System.out.println("Login not true");
-                        System.out.println("Please enter login again");
-                    }
-                    m--;
                 }
+            }
+            if (a1 != true) {
+                if (m != 1) {
+                    System.out.println("Login not true");
+                    System.out.println("Please enter login again");
+                }
+                m--;
             }
             systemExitCode(m);
         }
@@ -169,6 +173,13 @@ public class User {
 
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }
 
 
