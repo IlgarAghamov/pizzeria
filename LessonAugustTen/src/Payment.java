@@ -22,7 +22,7 @@ public class Payment {
     public void setCash(int cash) {
         this.cash = cash;}
 
-    public void paymentCard() throws InterruptedException {
+    public static void PaymentChoice() throws InterruptedException {
         System.out.println("Please choose to pay  : ");
         System.out.println("1)Card");
         System.out.println("2)Cash");
@@ -56,7 +56,10 @@ public class Payment {
                                     System.out.println("Card number : " + cardNumber);
                                     System.out.println("CVC code    : " + cvcNumber);
                                     System.out.println("CED         : " + cdeNumber);
-                                    System.out.println("To pay :"+ Pizza.pizzaPrice);
+                                    double value =Pizza.pizzaPrice;
+                                    System.out.print("To pay      : " );
+                                    System.out.printf("%.2f",value);
+                                    System.out.println();
                                     cardOperation = true;
                                     cardWhile=true;
                                 }
@@ -77,7 +80,7 @@ public class Payment {
                 if(cashPayment< Pizza.pizzaPrice){
                     System.out.println("Insufficient funds");
                     System.out.println("Please try again");
-                    p.paymentCard();
+                    p.PaymentChoice();
                 }else {
                     cashWarning=true;
                 }
@@ -141,6 +144,9 @@ public class Payment {
         }
     }
 
+    public static void main(String[] args) throws InterruptedException {
+        Payment.PaymentChoice();
+    }
 
 }
 
