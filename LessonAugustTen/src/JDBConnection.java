@@ -42,12 +42,29 @@ public class JDBConnection {
             ResultSet rs = statement.executeQuery("Select * from verification");
 
 
-                rs = statement.executeQuery(
-                        "insert into verification(login,password)values('" + login + "','" + password + "')");
+            rs = statement.executeQuery(
+                    "insert into verification(login,password)values('" + login + "','" + password + "')");
 
         } catch (Exception e) {
+
         }
 
+    }
 
+        public static void getPizzaOrExtra(String nameForTable){
+            try {
+                Statement statement = createStatement();
+
+                ResultSet rs = statement.executeQuery("Select * from "+ nameForTable+"");
+
+                while(rs.next()) {
+                    System.out.print(rs.getString(1));
+                    System.out.print(" "+rs.getDouble(2));
+                    System.out.println();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
     }
 }
+

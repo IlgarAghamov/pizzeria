@@ -5,7 +5,6 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class Pizzeria {
-    HashMap<String, String> hashMap = new HashMap<>();
     String choicePizzaForPay;
     static float pizzaPrice;
 
@@ -14,26 +13,18 @@ public class Pizzeria {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Pizzeria pizzeria = (Pizzeria) o;
-        return Objects.equals(hashMap, pizzeria.hashMap);
+        return Objects.equals(choicePizzaForPay, pizzeria.choicePizzaForPay);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(hashMap);
-    }
-
-    public HashMap<String, String> getHashMap() {
-        return hashMap;
-    }
-
-    public void setHashMap(HashMap<String, String> hashMap) {
-        this.hashMap = hashMap;
+        return Objects.hash(choicePizzaForPay);
     }
 
     @Override
     public String toString() {
         return "Pizzeria{" +
-                "hashMap=" + hashMap +
+                "choicePizzaForPay='" + choicePizzaForPay + '\'' +
                 '}';
     }
 
@@ -43,12 +34,7 @@ public class Pizzeria {
         switch (MyScanner.scannerSystemFor2()) {
             case "1":
                 System.out.println("Make Choice :");
-                hashMap.put("Pizza with Chicken ", " 60 gr");
-                hashMap.put("Pizza with Fish-Tuna ", " 50 gr");
-                hashMap.put("Pizza with Salami ", " 100 gr");
-                for (Map.Entry<String, String> p : hashMap.entrySet()) {
-                    System.out.println(p);
-                }
+                JDBConnection.getPizzaOrExtra("pizza");
                 System.out.println("1)If you want chicken enter     price : 12,5 ");
                 System.out.println("2)If fish enter                 price : 15,5 ");
                 System.out.println("3)If sausages enter             price : 14 ");
@@ -84,9 +70,7 @@ public class Pizzeria {
         System.out.println("Press 1 if yes and 2 if no");
         if (MyScanner.scannerSystemFor3().equals("1")) {
             System.out.println("What you want to order extra ?");
-            System.out.println("1)Chicken    price : 2 ");
-            System.out.println("2)Tuna       price : 3.5");
-            System.out.println("3)Salami     price : 3");
+            JDBConnection.getPizzaOrExtra("extra");
             System.out.println("Your choice :  ");
             switch (MyScanner.scannerSystemFor3()) {
                 case "1":

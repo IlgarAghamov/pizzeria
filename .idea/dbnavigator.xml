@@ -29,10 +29,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="875f120f-930a-4a55-a493-9a4bf4e1a11d">
-      <console name="Connection" type="STANDARD" schema="public" session="Main"><![CDATA[create table choicePizza (
-pizza VARCHAR(16),
-price double_precision (5,2) 
-)]]></console>
+      <console name="Connection" type="STANDARD" schema="public" session="Main"><![CDATA[DELETE FROM pizza WHERE price<4 ;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
@@ -42,9 +39,20 @@ price double_precision (5,2)
     <connection id="875f120f-930a-4a55-a493-9a4bf4e1a11d" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="875f120f-930a-4a55-a493-9a4bf4e1a11d" dataset="public.pizza" active-filter-id="b56460f4-66be-408d-9fdb-214a87ce906c">
+      <filter id="b56460f4-66be-408d-9fdb-214a87ce906c" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="pizza" operator="=" value="" active="true" />
+      </filter>
+    </filter-actions>
+    <filter-actions connection-id="875f120f-930a-4a55-a493-9a4bf4e1a11d" dataset="public.choicepizza" active-filter-id="" />
     <filter-actions connection-id="875f120f-930a-4a55-a493-9a4bf4e1a11d" dataset="public.verification" active-filter-id="EMPTY_FILTER">
       <filter id="75f189d3-6f10-4d33-b3a7-21d3e130fb31" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
         <condition column="login" operator="=" value="" active="true" />
+      </filter>
+    </filter-actions>
+    <filter-actions connection-id="875f120f-930a-4a55-a493-9a4bf4e1a11d" dataset="public.extra" active-filter-id="6ad118bf-3f7c-4f48-8297-33bfe89b8dec">
+      <filter id="6ad118bf-3f7c-4f48-8297-33bfe89b8dec" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="extra" operator="=" value="" active="true" />
       </filter>
     </filter-actions>
   </component>
