@@ -31,9 +31,6 @@ public class Pizza {
             case "1":
                 System.out.println("Make Choice :");
                 JDBConnection.getPizzaOrExtra("pizza");
-                System.out.println("1)If you want chicken enter     price : 12,5 ");
-                System.out.println("2)If fish enter                 price : 15,5 ");
-                System.out.println("3)If sausages enter             price : 14 ");
                 pizzaPrice = 0;
                 switch (MyScanner.scannerSystemFor3()) {
                     case "1":
@@ -92,5 +89,10 @@ public class Pizza {
 
 
         }
+    }
+
+    public static void main(String[] args) {
+        Pizza pizza=new Pizza();
+        pizza.PizzaMenu();
     }
 }

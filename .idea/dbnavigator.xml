@@ -29,7 +29,9 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="875f120f-930a-4a55-a493-9a4bf4e1a11d">
-      <console name="Connection" type="STANDARD" schema="public" session="Main"><![CDATA[DELETE FROM pizza WHERE price<4 ;]]></console>
+      <console name="Connection" type="STANDARD" schema="public" session="Main"><![CDATA[insert into pizza (pizza,price)values ('1)Pizza with Chicken - 60 gr ', 12.5)
+insert into pizza (pizza,price)values ('2)Pizza with Fish    - 50 gr', 15.5)
+insert into pizza (pizza,price)values ('3)Pizza with Salami  - 100 gr', 14.0)]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
